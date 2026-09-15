@@ -1,106 +1,187 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="2026년을 초록빛으로 계획하는 달력형 투두 리스트">
-  <title>초록 계획 — 2026 달력 투두 리스트</title>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b5e3a'/%3E%3Cpath d='M9 20c7 1 12-3 14-12-9 1-14 5-14 12Zm1 4c2-5 6-9 11-12' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="제주 함덕의 산과 바다를 한 판에 담은 로컬 피자, 피자봉봉. 함덕 바다 앞에서 즐기는 제주 식재료 피자와 좋은 분위기.">
+  <meta name="theme-color" content="#f27127">
+  <title>피자봉봉 함덕 | Good Pizza, Good Vibes</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f27127'/%3E%3Cpath d='M15 48 32 10l17 38z' fill='%23fff7e8' stroke='%231c1c1c' stroke-width='4' stroke-linejoin='round'/%3E%3Ccircle cx='31' cy='26' r='4' fill='%23f27127'/%3E%3Ccircle cx='25' cy='38' r='4' fill='%23f27127'/%3E%3Ccircle cx='39' cy='39' r='4' fill='%23f27127'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="leaf-field" aria-hidden="true">
-    <span style="--x:5%;--delay:-2s;--duration:15s;--size:1.5rem">🍃</span>
-    <span style="--x:18%;--delay:-9s;--duration:19s;--size:1.15rem">🌿</span>
-    <span style="--x:36%;--delay:-5s;--duration:17s;--size:1.4rem">🍃</span>
-    <span style="--x:58%;--delay:-12s;--duration:21s;--size:1.25rem">🌱</span>
-    <span style="--x:76%;--delay:-7s;--duration:18s;--size:1.55rem">🍃</span>
-    <span style="--x:92%;--delay:-15s;--duration:22s;--size:1.2rem">🌿</span>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <div class="announcement" role="note">
+    <span>JEJU · HAMDEOK</span>
+    <p>제주의 산과 바다를 한 판에</p>
+    <span>EST. 2024</span>
   </div>
 
-  <main class="app-shell">
-    <header class="topbar">
-      <a class="brand" href="#" aria-label="초록 계획 홈">
-        <span class="brand-mark" aria-hidden="true">🌿</span>
-        <span>초록 계획</span>
-      </a>
-      <div class="year-chip">2026 YEAR PLANNER</div>
-    </header>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="피자봉봉 홈">
+      <span class="brand-mark">B</span>
+      <span class="brand-type"><b>PIZZA BONG BONG</b><small>피자봉봉 함덕</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span><span class="sr-only">메뉴 열기</span>
+    </button>
+    <nav id="site-nav" aria-label="주요 메뉴">
+      <a href="#menu">메뉴</a>
+      <a href="#story">우리 이야기</a>
+      <a href="#space">함덕에서</a>
+      <button class="nav-cta js-open-menu" type="button">전체 메뉴 보기</button>
+    </nav>
+  </header>
 
-    <section class="workspace" aria-label="2026년 달력과 투두 리스트">
-      <div class="calendar-panel">
-        <div class="calendar-head">
-          <div>
-            <p class="eyebrow">2026 CALENDAR</p>
-            <h1 id="month-title">1월</h1>
-          </div>
-          <div class="month-controls" aria-label="월 이동">
-            <button class="icon-button" id="prev-month" type="button" aria-label="이전 달">←</button>
-            <button class="today-button" id="today-button" type="button">오늘</button>
-            <button class="icon-button" id="next-month" type="button" aria-label="다음 달">→</button>
-          </div>
+  <main id="main">
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">GOOD PIZZA, GOOD VIBES</p>
+        <h1 id="hero-title"><span>제주의 푸른 낭만을</span><span><em>가장 맛있게</em> 전하는</span><span>한 조각</span></h1>
+        <p class="hero-lede">한라산에서 자란 고사리와 당근, 바다에서 건진 전복까지. 함덕의 풍경과 제주 로컬 재료를 피자 한 판에 담았습니다.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#menu">시그니처 피자 보기</a>
+          <a class="text-link" href="#space">데이트 스팟 둘러보기 <span aria-hidden="true">→</span></a>
         </div>
-
-        <div class="weekdays" aria-hidden="true">
-          <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+        <dl class="hero-facts" aria-label="피자봉봉 특징">
+          <div><dt>LOCAL</dt><dd>제주 식재료</dd></div>
+          <div><dt>MOOD</dt><dd>함덕 오션뷰</dd></div>
+          <div><dt>PAIRING</dt><dd>피자와 제주 맥주</dd></div>
+        </dl>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-frame">
+          <img src="assets/hero.png" alt="한라산과 제주 바다, 피자가 어우러진 피자봉봉 레트로 아트워크">
         </div>
-        <div class="calendar-grid" id="calendar-grid" role="grid" aria-labelledby="month-title"></div>
+        <div class="hero-stamp" aria-hidden="true"><b>HAMDEOK</b><span>33.5435° N</span></div>
+      </div>
+    </section>
 
-        <footer class="calendar-footer">
-          <div class="progress-copy">
-            <span>이번 달 진행률</span>
-            <strong id="progress-label">0%</strong>
-          </div>
-          <div class="progress-track" role="progressbar" aria-label="이번 달 할 일 진행률" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-            <span id="progress-bar"></span>
-          </div>
-        </footer>
+    <div class="ticker" aria-hidden="true">
+      <div>GOOD PIZZA&nbsp;&nbsp;✦&nbsp;&nbsp;GOOD VIBES&nbsp;&nbsp;✦&nbsp;&nbsp;MADE IN JEJU&nbsp;&nbsp;✦&nbsp;&nbsp;SLICE BY THE SEA&nbsp;&nbsp;✦&nbsp;&nbsp;GOOD PIZZA&nbsp;&nbsp;✦&nbsp;&nbsp;GOOD VIBES</div>
+    </div>
+
+    <section class="menu-section section-shell reveal" id="menu" aria-labelledby="menu-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">SIGNATURE PIZZA</p>
+          <h2 id="menu-title">제주에서만 만나는<br>봉봉 피자</h2>
+        </div>
+        <p>산의 향, 바다의 감칠맛, 햇살을 머금은 채소. 익숙한 피자에 제주다운 한 끗을 더했습니다.</p>
       </div>
 
-      <aside class="todo-panel" aria-labelledby="selected-date-title">
-        <div class="date-card">
-          <span class="date-number" id="selected-day">1</span>
-          <div>
-            <p id="selected-weekday">목요일</p>
-            <h2 id="selected-date-title">2026년 1월 1일</h2>
+      <div class="pizza-grid">
+        <article class="pizza-card pizza-card-featured">
+          <div class="pizza-image"><img src="assets/gosari.png" alt="제주 고사리와 표고버섯, 흑돼지 베이컨을 올린 고사리봉봉 피자" loading="lazy"></div>
+          <div class="pizza-copy">
+            <span class="menu-number">01 · BEST</span>
+            <h3>고사리봉봉 피자</h3>
+            <p>제주 고사리 · 표고버섯 · 흑돼지 베이컨</p>
+            <div><span>깊고 고소한 제주의 산</span><b>17,000</b></div>
+          </div>
+        </article>
+        <article class="pizza-card">
+          <div class="pizza-image"><img src="assets/carrot.png" alt="제주 당근 퓌레와 호두, 리코타 치즈를 올린 당근봉봉 피자" loading="lazy"></div>
+          <div class="pizza-copy">
+            <span class="menu-number">02 · SWEET</span>
+            <h3>당근봉봉 피자</h3>
+            <p>제주 당근 퓌레 · 호두 · 리코타</p>
+            <div><span>부드럽고 달콤한 섬의 햇살</span><b>16,000</b></div>
+          </div>
+        </article>
+        <article class="pizza-card">
+          <div class="pizza-image"><img src="assets/abalone.png" alt="제주 전복과 버터갈릭 소스를 올린 전복봉봉 피자" loading="lazy"></div>
+          <div class="pizza-copy">
+            <span class="menu-number">03 · PREMIUM</span>
+            <h3>전복봉봉 피자</h3>
+            <p>제주 전복 · 버터갈릭 소스</p>
+            <div><span>바다를 닮은 진한 감칠맛</span><b>24,000</b></div>
+          </div>
+        </article>
+        <article class="pizza-card">
+          <div class="pizza-image"><img src="assets/black-pork.png" alt="제주 흑돼지 오겹살과 명이나물을 올린 흑돼지봉봉 피자" loading="lazy"></div>
+          <div class="pizza-copy">
+            <span class="menu-number">04 · RICH</span>
+            <h3>흑돼지봉봉 피자</h3>
+            <p>제주 흑돼지 오겹살 · 명이나물</p>
+            <div><span>짭조름하고 풍성한 한 판</span><b>21,000</b></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="menu-footer">
+        <p>레귤러 9인치 기준 · 라지 사이즈와 도우 옵션도 준비되어 있어요.</p>
+        <button class="button button-dark js-open-menu" type="button">전체 메뉴판 펼치기</button>
+      </div>
+    </section>
+
+    <section class="story-section" id="story" aria-labelledby="story-title">
+      <div class="story-image reveal"><img src="assets/interior.png" alt="함덕 바다가 보이는 따뜻한 우드톤의 피자봉봉 매장 내부" loading="lazy"></div>
+      <div class="story-copy reveal">
+        <p class="eyebrow">BORN IN HAMDEOK</p>
+        <h2 id="story-title">함덕 소년의 추억과<br>낭만을 굽습니다.</h2>
+        <p class="story-lede">친구들과 뛰놀던 바다, 해 질 무렵의 따뜻한 빛, 파도 소리를 들으며 나누던 이야기. 그 기억을 누구나 맛볼 수 있는 피자로 만들고 싶었습니다.</p>
+        <blockquote>“한라산이 피자가 된다면?”</blockquote>
+        <p>피자봉봉은 제주 로컬 재료를 낯설지 않게, 그러나 분명히 새롭게 풀어냅니다. 여행의 하루를 채우는 한 끼를 넘어 오래 기억되는 제주 브랜드를 만들어갑니다.</p>
+        <ul class="story-tags" aria-label="브랜드 키워드">
+          <li>제주 로컬</li><li>레트로 하와이안</li><li>함덕 오션 무드</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="date-section section-shell reveal" id="space" aria-labelledby="date-title">
+      <div class="date-copy">
+        <p class="eyebrow">A DATE BY THE SEA</p>
+        <h2 id="date-title">바다를 사이에 두고,<br>피자 한 조각 더.</h2>
+        <p>낮에는 에메랄드빛 함덕 바다, 저녁에는 노을과 따뜻한 조명. 둘만의 제주 여행에 여유로운 피맥 한 장면을 더해보세요.</p>
+        <ul class="date-points">
+          <li><b>VIEW</b><span>창가에서 만나는 함덕의 수평선</span></li>
+          <li><b>MOOD</b><span>사진으로 남기기 좋은 레트로 무드</span></li>
+          <li><b>MEMORY</b><span>여행 뒤에도 꺼내보는 봉봉 굿즈</span></li>
+        </ul>
+      </div>
+      <div class="date-gallery">
+        <figure class="gallery-main"><img src="assets/exterior.png" alt="함덕 바다 앞 피자봉봉 목조 외관" loading="lazy"><figcaption>HAMDEOK, JEJU</figcaption></figure>
+        <figure class="gallery-small"><img src="assets/goods.png" alt="피자봉봉 에코백과 스티커, 코스터 굿즈" loading="lazy"><figcaption>TAKE THE VIBE HOME</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="visit-section">
+      <div class="visit-inner section-shell reveal">
+        <div>
+          <p class="eyebrow">VISIT PIZZA BONG BONG</p>
+          <h2>파도 소리 따라<br>함덕에서 만나요.</h2>
+        </div>
+        <div class="visit-info">
+          <p><b>피자봉봉 함덕점</b><span>제주 함덕해변 가까이</span></p>
+          <p><b>Instagram</b><span>@pizzabongbong_jeju</span></p>
+          <div class="visit-actions">
+            <a class="button button-light" href="https://map.naver.com/p/search/%ED%94%BC%EC%9E%90%EB%B4%89%EB%B4%89%20%ED%95%A8%EB%8D%95%EC%A0%90" target="_blank" rel="noopener">지도에서 찾기</a>
+            <a class="text-link text-link-light" href="https://www.instagram.com/pizzabongbong_jeju/" target="_blank" rel="noopener">인스타그램 <span aria-hidden="true">→</span></a>
           </div>
         </div>
-
-        <form class="todo-form" id="todo-form">
-          <label class="sr-only" for="todo-input">새 할 일</label>
-          <input id="todo-input" type="text" maxlength="80" placeholder="새로운 할 일을 적어보세요" autocomplete="off" required>
-          <button type="submit" aria-label="할 일 추가">+</button>
-        </form>
-
-        <div class="todo-meta">
-          <span id="todo-summary">할 일 0개</span>
-          <button id="clear-completed" type="button">완료 항목 지우기</button>
-        </div>
-
-        <ul class="todo-list" id="todo-list" aria-live="polite"></ul>
-
-        <div class="empty-state" id="empty-state">
-          <span aria-hidden="true">🌱</span>
-          <p>아직 할 일이 없어요.</p>
-          <small>오늘의 작은 계획을 심어보세요.</small>
-        </div>
-      </aside>
+        <img class="visit-character" src="assets/character.png" alt="돌하르방 모자를 쓴 피자봉봉 캐릭터" loading="lazy">
+      </div>
     </section>
   </main>
 
-  <template id="todo-template">
-    <li class="todo-item">
-      <label class="todo-check">
-        <input type="checkbox">
-        <span class="checkmark" aria-hidden="true">✓</span>
-        <span class="todo-text"></span>
-      </label>
-      <button class="delete-button" type="button" aria-label="할 일 삭제">×</button>
-    </li>
-  </template>
+  <footer class="site-footer">
+    <a class="brand brand-footer" href="#top" aria-label="맨 위로">
+      <span class="brand-mark">B</span>
+      <span class="brand-type"><b>PIZZA BONG BONG</b><small>GOOD PIZZA, GOOD VIBES</small></span>
+    </a>
+    <p>제주의 산과 바다를 맛있게 잇는 로컬 피자 브랜드</p>
+    <p>© <span id="year"></span> PIZZA BONG BONG</p>
+  </footer>
 
-  <script src="script.js"></script>
+  <dialog class="menu-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-bar">
+      <div><span>FULL MENU</span><h2 id="dialog-title">피자봉봉 메뉴판</h2></div>
+      <button class="dialog-close" type="button" aria-label="메뉴판 닫기">×</button>
+    </div>
+    <div class="dialog-content"><img src="assets/menu.png" alt="피자봉봉 전체 메뉴와 가격"></div>
+  </dialog>
 </body>
 </html>
