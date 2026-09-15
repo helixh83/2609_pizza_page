@@ -32,6 +32,7 @@ dist/
 ├── index.html
 ├── styles.css
 ├── script.js
+├── og.png
 └── assets/
     ├── hero.png
     ├── gosari.png
