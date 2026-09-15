@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="2026년을 초록빛으로 계획하는 달력형 투두 리스트">
+  <title>초록 계획 — 2026 달력 투두 리스트</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b5e3a'/%3E%3Cpath d='M9 20c7 1 12-3 14-12-9 1-14 5-14 12Zm1 4c2-5 6-9 11-12' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="leaf-field" aria-hidden="true">
+    <span style="--x:5%;--delay:-2s;--duration:15s;--size:1.5rem">🍃</span>
+    <span style="--x:18%;--delay:-9s;--duration:19s;--size:1.15rem">🌿</span>
+    <span style="--x:36%;--delay:-5s;--duration:17s;--size:1.4rem">🍃</span>
+    <span style="--x:58%;--delay:-12s;--duration:21s;--size:1.25rem">🌱</span>
+    <span style="--x:76%;--delay:-7s;--duration:18s;--size:1.55rem">🍃</span>
+    <span style="--x:92%;--delay:-15s;--duration:22s;--size:1.2rem">🌿</span>
+  </div>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="초록 계획 홈">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>초록 계획</span>
+      </a>
+      <div class="year-chip">2026 YEAR PLANNER</div>
+    </header>
+
+    <section class="workspace" aria-label="2026년 달력과 투두 리스트">
+      <div class="calendar-panel">
+        <div class="calendar-head">
+          <div>
+            <p class="eyebrow">2026 CALENDAR</p>
+            <h1 id="month-title">1월</h1>
+          </div>
+          <div class="month-controls" aria-label="월 이동">
+            <button class="icon-button" id="prev-month" type="button" aria-label="이전 달">←</button>
+            <button class="today-button" id="today-button" type="button">오늘</button>
+            <button class="icon-button" id="next-month" type="button" aria-label="다음 달">→</button>
+          </div>
+        </div>
+
+        <div class="weekdays" aria-hidden="true">
+          <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+        </div>
+        <div class="calendar-grid" id="calendar-grid" role="grid" aria-labelledby="month-title"></div>
+
+        <footer class="calendar-footer">
+          <div class="progress-copy">
+            <span>이번 달 진행률</span>
+            <strong id="progress-label">0%</strong>
+          </div>
+          <div class="progress-track" role="progressbar" aria-label="이번 달 할 일 진행률" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <span id="progress-bar"></span>
+          </div>
+        </footer>
+      </div>
+
+      <aside class="todo-panel" aria-labelledby="selected-date-title">
+        <div class="date-card">
+          <span class="date-number" id="selected-day">1</span>
+          <div>
+            <p id="selected-weekday">목요일</p>
+            <h2 id="selected-date-title">2026년 1월 1일</h2>
+          </div>
+        </div>
+
+        <form class="todo-form" id="todo-form">
+          <label class="sr-only" for="todo-input">새 할 일</label>
+          <input id="todo-input" type="text" maxlength="80" placeholder="새로운 할 일을 적어보세요" autocomplete="off" required>
+          <button type="submit" aria-label="할 일 추가">+</button>
+        </form>
+
+        <div class="todo-meta">
+          <span id="todo-summary">할 일 0개</span>
+          <button id="clear-completed" type="button">완료 항목 지우기</button>
+        </div>
+
+        <ul class="todo-list" id="todo-list" aria-live="polite"></ul>
+
+        <div class="empty-state" id="empty-state">
+          <span aria-hidden="true">🌱</span>
+          <p>아직 할 일이 없어요.</p>
+          <small>오늘의 작은 계획을 심어보세요.</small>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <template id="todo-template">
+    <li class="todo-item">
+      <label class="todo-check">
+        <input type="checkbox">
+        <span class="checkmark" aria-hidden="true">✓</span>
+        <span class="todo-text"></span>
+      </label>
+      <button class="delete-button" type="button" aria-label="할 일 삭제">×</button>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
